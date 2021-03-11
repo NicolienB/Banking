@@ -13,42 +13,44 @@
 
   <div class="field">
     <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.text_field :description%>
   </div>
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.date_select :date %>
+    <%= form.date_select :date ,  :required => true%>
   </div>
 
   <div class="field">
     <%= form.label :bank_account %>
-    <%= form.text_field :bank_account %>
+    <%= form.text_field :bank_account, :required => true%>
   </div>
 
   <div class="field">
     <%= form.label :contra_account %>
-    <%= form.text_field :contra_account %>
+    <%= form.text_field :contra_account , :required => true%>
   </div>
 
   <div class="field">
     <%= form.label :contra_account_owner %>
-    <%= form.text_field :contra_account_owner %>
+    <%= form.text_field :contra_account_owner, :required => true %>
   </div>
+
 
   <div class="field">
     <%= form.label :amount %>
-    <%= form.text_field :amount %>
+    <%= form.text_field :amount, :required => true %>
   </div>
 
   <div class="field">
     <%= form.label :currency %>
-    <%= form.text_field :currency %>
+    <%= form.select(:currency, Transaction::Currencylist) %>
+
   </div>
 
   <div class="field">
     <%= form.label :credit_or_debit %>
-    <%= form.text_field :credit_or_debit %>
+    <%= form.select :credit_or_debit, Transaction::CreditOrDebitList%>
   </div>
 
   <div class="actions">

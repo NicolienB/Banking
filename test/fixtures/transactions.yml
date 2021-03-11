@@ -3,8 +3,8 @@
 one:
   description: MyString
   date: 2021-03-10
-  bank_account: 
-  contra_account: 
+  bank_account: MyString
+  contra_account: MyString
   contra_account_owner: MyString
   amount: 1.5
   currency: MyString
@@ -13,8 +13,8 @@ one:
 two:
   description: MyString
   date: 2021-03-10
-  bank_account: 
-  contra_account: 
+  bank_account: MyString
+  contra_account: MyString
   contra_account_owner: MyString
   amount: 1.5
   currency: MyString

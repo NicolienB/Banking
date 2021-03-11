@@ -13,6 +13,7 @@ class TransactionsController < ApplicationController
   # GET /transactions/new
   def new
     @transaction = Transaction.new
+
   end
 
   # GET /transactions/1/edit
@@ -65,5 +66,6 @@ class TransactionsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def transaction_params
       params.require(:transaction).permit(:description, :date, :bank_account, :contra_account, :contra_account_owner, :amount, :currency, :credit_or_debit)
+
     end
 end
