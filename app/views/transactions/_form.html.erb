@@ -18,7 +18,8 @@
 
   <div class="field">
     <%= form.label :date %>
-    <%= form.date_select :date ,  :required => true%>
+    <%= form.date_select :date ,start_year: Date.today.year ,  :required => true%>
+
   </div>
 
   <div class="field">
