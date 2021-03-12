@@ -1,4 +1,5 @@
 class TransactionsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_transaction, only: %i[ show edit update destroy ]
 
   # GET /transactions or /transactions.json

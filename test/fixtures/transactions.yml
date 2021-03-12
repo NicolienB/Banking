@@ -1,14 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  description: MyString
-  date: 2021-03-10
-  bank_account: MyString
-  contra_account: MyString
-  contra_account_owner: MyString
+Shouldpass:
+  description: "MyString"
+  date: 2021-03-12
+  bank_account: GB92 AVVZ 46534230174644
+  contra_account: GB92 AVVZ 46534230174644
+  contra_account_owner: ABEL
   amount: 1.5
-  currency: MyString
-  credit_or_debit: MyString
+  currency: "Euro €"
+  credit_or_debit: "Credit"
 
 two:
   description: MyString

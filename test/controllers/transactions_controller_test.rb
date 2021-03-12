@@ -2,7 +2,7 @@ require "test_helper"
 
 class TransactionsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @transaction = transactions(:one)
+    @transaction = transactions(:Shouldpass)
   end
 
   test "should get index" do
