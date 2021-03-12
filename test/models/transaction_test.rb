@@ -42,6 +42,7 @@ class TransactionTest < ActiveSupport::TestCase
     assert_not transaction.save
   end
 #  The following tests test if only valid arguments are accepted
+  # Test names are self explanatory
   test "is invalid with wrong bank account" do
     transaction = Transaction.new(description:"This is some free money",bank_account: "GB9 AVVZ 46534230174644", contra_account: "GB92 AVVZ 46534230174644", date:Date.today,contra_account_owner:"Paul",amount: 10, currency: "Euro €",credit_or_debit: "Credit" )
     assert_not transaction.save
@@ -69,6 +70,24 @@ class TransactionTest < ActiveSupport::TestCase
   end
   test "is invalid with different card than debit or credit" do
     transaction = Transaction.new(description:"This is some free money",bank_account: "GB92 AVVZ 46534230174644", contra_account: "GB92 AVVZ 46534230174644", date: Date.yesterday,contra_account_owner:"Paul",amount: 10, currency: "Euro €",credit_or_debit: "Bank" )
+    assert_not transaction.save
+  end
+
+#  Testing IBAN verification, only accept format: GB92 AVVZ 46534230174644 (also without spaces), the same for bank account and contra account
+  test "is invalid, invalid country code " do
+    transaction = Transaction.new(description:"This is some free money",bank_account: "G92 AVVZ 46534230174644", contra_account: "GB92 AVVZ 46534230174644", date: Date.yesterday,contra_account_owner:"Paul",amount: 10, currency: "Euro €",credit_or_debit: "Credit" )
+    assert_not transaction.save
+  end
+  test "is invalid with invalid number of numbersafter countrycode" do
+    transaction = Transaction.new(description:"This is some free money",bank_account: "GB9 AVVZ 46534230174644", contra_account: "GB92 AVVZ 46534230174644", date: Date.yesterday,contra_account_owner:"Paul",amount: 10, currency: "Euro €",credit_or_debit: "Credit" )
+    assert_not transaction.save
+  end
+  test "is invalid with wrong number of letters after first numbers"  do
+    transaction = Transaction.new(description:"This is some free money",bank_account: "GB92 AVZ 46534230174644", contra_account: "GB92 AVVZ 46534230174644", date: Date.yesterday,contra_account_owner:"Paul",amount: 10, currency: "Euro €",credit_or_debit: "Credit" )
+    assert_not transaction.save
+  end
+  test "is invalid with wrong amount of numbers at the end" do
+    transaction = Transaction.new(description:"This is some free money",bank_account: "GB92 AVVZ 46534230174644", contra_account: "GB92 AVVZ 46534230174644", date: Date.yesterday,contra_account_owner:"Paul",amount: 10, currency: "Euro €",credit_or_debit: "Credit" )
     assert_not transaction.save
   end
 end
