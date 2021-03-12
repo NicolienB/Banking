@@ -10,7 +10,7 @@ class Transaction < ApplicationRecord
             presence: true
   validate :date, :DateValidation
   validates :amount, :numericality => { greater_than: 0, message: "The amount you want to transfer needs to be bigger than 0 represented in numbers, please use . as decimal point" }
-  validates :amount, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/, message:"the amount cannot have more than decimals"}
+  validates :amount, presence: true, format: { with: /\A\d+(?:\.\d{0,2})?\z/, message:"the amount cannot have more than two decimals"}
   def DateValidation
     if date.present? && date < Date.today
       errors.add(:date, "The date of transaction can only be today or in the future.")
