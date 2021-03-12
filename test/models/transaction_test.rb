@@ -54,4 +54,21 @@ class TransactionTest < ActiveSupport::TestCase
     transaction = Transaction.new(description:"This is some free money",bank_account: "GB92 AVVZ 46534230174644", contra_account: "GB92 AVVZ 46534230174644", date: Date.yesterday,contra_account_owner:"Paul",amount: 10, currency: "Euro €",credit_or_debit: "Credit" )
     assert_not transaction.save
   end
+  test "is invalid with numbers in contra account owner" do
+    transaction = Transaction.new(description:"This is some free money",bank_account: "GB92 AVVZ 46534230174644", contra_account: "GB92 AVVZ 46534230174644", date: Date.yesterday,contra_account_owner:"Paul1",amount: 10, currency: "Euro €",credit_or_debit: "Credit" )
+    assert_not transaction.save
+  end
+
+  test "is invalid with amount with more than 2 decimals" do
+    transaction = Transaction.new(description:"This is some free money",bank_account: "GB92 AVVZ 46534230174644", contra_account: "GB92 AVVZ 46534230174644", date: Date.yesterday,contra_account_owner:"Paul",amount: 0.001, currency: "Euro €",credit_or_debit: "Credit" )
+    assert_not transaction.save
+  end
+  test "is invalid with wrong currency" do
+    transaction = Transaction.new(description:"This is some free money",bank_account: "GB92 AVVZ 46534230174644", contra_account: "GB92 AVVZ 46534230174644", date: Date.yesterday,contra_account_owner:"Paul",amount: 10, currency: "Yuan",credit_or_debit: "Credit" )
+    assert_not transaction.save
+  end
+  test "is invalid with different card than debit or credit" do
+    transaction = Transaction.new(description:"This is some free money",bank_account: "GB92 AVVZ 46534230174644", contra_account: "GB92 AVVZ 46534230174644", date: Date.yesterday,contra_account_owner:"Paul",amount: 10, currency: "Euro €",credit_or_debit: "Bank" )
+    assert_not transaction.save
+  end
 end
