@@ -51,7 +51,7 @@ class TransactionTest < ActiveSupport::TestCase
     assert_not transaction.save
   end
   test "is invalid with date in past" do
-    transaction = Transaction.new(description:"This is some free money",bank_account: "GB92 AVVZ 46534230174644", contra_account: "GB92 AVVZ 46534230174644", date: 2021-03-10,contra_account_owner:"Paul",amount: 10, currency: "Euro €",credit_or_debit: "Credit" )
+    transaction = Transaction.new(description:"This is some free money",bank_account: "GB92 AVVZ 46534230174644", contra_account: "GB92 AVVZ 46534230174644", date: Date.yesterday,contra_account_owner:"Paul",amount: 10, currency: "Euro €",credit_or_debit: "Credit" )
     assert_not transaction.save
   end
 end
