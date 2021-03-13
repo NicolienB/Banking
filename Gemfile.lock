@@ -62,6 +62,8 @@ GEM
       zeitwerk (~> 2.3)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
+    auto_strip_attributes (2.6.0)
+      activerecord (>= 4.0)
     bindex (0.8.1)
     bootsnap (1.7.2)
       msgpack (~> 1.0)
@@ -203,6 +205,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  auto_strip_attributes (~> 2.6)
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)
