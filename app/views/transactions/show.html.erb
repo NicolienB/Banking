@@ -1,44 +1,49 @@
 <p id="notice"><%= notice %></p>
+<div class="columns mt-6 is-centered">
+  <div class="column is-one-third">
+    <nav class ="panel is-link">
+      <p class="panel-heading">
+        <%= @transaction.date %>
+      </p>
+      <div class="panel-block">
+        Description: <%= @transaction.description %>
+      </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @transaction.description %>
-</p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @transaction.date %>
-</p>
 
-<p>
-  <strong>Bank account:</strong>
-  <%= @transaction.bank_account %>
-</p>
+      <div class="panel-block">
+        Bank account: <%= @transaction.bank_account %>
+      </div>
 
-<p>
-  <strong>Contra account:</strong>
-  <%= @transaction.contra_account %>
-</p>
+      <div class="panel-block">
+        Contra account: <%= @transaction.contra_account %>
+      </div>
 
-<p>
-  <strong>Contra account owner:</strong>
-  <%= @transaction.contra_account_owner %>
-</p>
+      <div class="panel-block">
+        Contra account owner: <%= @transaction.contra_account_owner %>
+      </div>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @transaction.amount %>
-</p>
+      <div class="panel-block">
+        Amount: <%= @transaction.amount %>
+      </div>
 
-<p>
-  <strong>Currency:</strong>
-  <%= @transaction.currency %>
-</p>
+      <div class="panel-block">
+        Currency: <%= @transaction.currency %>
+      </div>
 
-<p>
-  <strong>Credit or debit:</strong>
-  <%= @transaction.credit_or_debit %>
-</p>
+      <div class="panel-block">
+        Credit or debit: <%= @transaction.credit_or_debit %>
+      </div>
+    </nav>
+    <div class="columns is-mobile">
+      <div class="column">
+        <%= link_to 'Edit', edit_transaction_path(@transaction), class:"button is-gray" %> |
+        <%= link_to 'Back', transactions_path, class:"button is-gray" %>
+      </div>
 
-<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
-<%= link_to 'Back', transactions_path %>
+    </div>
+  </div>
+</div>
+
+
+

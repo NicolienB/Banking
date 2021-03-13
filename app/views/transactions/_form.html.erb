@@ -1,8 +1,9 @@
 <%= form_with(model: transaction) do |form| %>
   <% if transaction.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</h2>
-
+    <div class="message is-danger">
+      <div class="message-header">
+        <p><%= pluralize(transaction.errors.count, "error") %> prohibited this transaction from being saved:</p>
+      </div>
       <ul>
         <% transaction.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -12,49 +13,49 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_field :description%>
+    <%= form.label :description, class:"label"%>
+    <%= form.text_field :description, class:"input"%>
   </div>
 
   <div class="field">
-    <%= form.label :date %>
-    <%= form.date_select :date ,start_year: Date.today.year ,  :required => true%>
-
-  </div>
-
-  <div class="field">
-    <%= form.label :bank_account %>
-    <%= form.text_field :bank_account, :required => true%>
-  </div>
-
-  <div class="field">
-    <%= form.label :contra_account %>
-    <%= form.text_field :contra_account , :required => true%>
-  </div>
-
-  <div class="field">
-    <%= form.label :contra_account_owner %>
-    <%= form.text_field :contra_account_owner, :required => true %>
-  </div>
-
-
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount, :required => true %>
-  </div>
-
-  <div class="field">
-    <%= form.label :currency %>
-    <%= form.select(:currency, Transaction::Currencylist) %>
+    <%= form.label :date, class:"label" %>
+    <%= form.date_select :date ,start_year: Date.today.year ,  :required => true, class:"input"%>
 
   </div>
 
   <div class="field">
-    <%= form.label :credit_or_debit %>
-    <%= form.select :credit_or_debit, Transaction::CreditOrDebitList%>
+    <%= form.label :bank_account, class:"label" %>
+    <%= form.text_field :bank_account, :required => true, class:"input"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :contra_account, class:"label" %>
+    <%= form.text_field :contra_account , :required => true, class:"input"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :contra_account_owner, class:"label" %>
+    <%= form.text_field :contra_account_owner, :required => true, class:"input" %>
+  </div>
+
+
+  <div class="field">
+    <%= form.label :amount, class:"label" %>
+    <%= form.text_field :amount, :required => true, class:"input" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :currency, class:"label" %>
+    <%= form.select :currency, Transaction::Currencylist, class:"input" %>
+
+  </div>
+
+  <div class="field">
+    <%= form.label :credit_or_debit, class:"label" %>
+    <%= form.select :credit_or_debit, Transaction::CreditOrDebitList, class:"input"%>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class:"button-is-success" %>
   </div>
 <% end %>

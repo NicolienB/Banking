@@ -8,14 +8,14 @@
         </header>
         <div class="card-content">
           <div class ="content">
-            <p><span class ="has-text-weight-bold"><%= transaction.credit_or_debit %></span></p>
-            <p><span class ="has-text-weight-bold"><b>Transaction from: </b><%= transaction.bank_account %></span></p>
-            <p><span class ="has-text-weight-bold"><b>Transaction to: </b><%= transaction.contra_account_owner%><b> : </b><%= transaction.contra_account %></span></p>
+<!--            <p><span class ="has-text-weight-bold"><%#= transaction.credit_or_debit %></span></p>-->
+            <p><span class ="has-text-weight-bold"><b>Transaction from: </b><br><%= transaction.bank_account %></span></p>
+            <p><span class ="has-text-weight-bold"><b>Transaction to: </b><br><%= transaction.contra_account_owner%><b> : </b><%= transaction.contra_account %></span></p>
             <%#=  transaction.contra_account_owner%>
-            <p><span class ="has-text-weight-bold"><%= transaction.currency%><%= transaction.amount %></span></p>
+<!--            <p><span class ="has-text-weight-bold"><%#= transaction.currency%><%= transaction.amount %></span></p>-->
             <%#= transaction.currency %>
 
-            <%= transaction.description %>
+            <%#= transaction.description %>
           </div>
         </div>
         <div class="card-footer">
