@@ -7,7 +7,7 @@ Shouldpass:
   contra_account: GB92 AVVZ 46534230174644
   contra_account_owner: ABEL
   amount: 1.5
-  currency: "Euro €"
+  currency: "€"
   credit_or_debit: "Credit"
 
 two:
