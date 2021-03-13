@@ -24,12 +24,10 @@
       </div>
 
       <div class="panel-block">
-        Amount: <%= @transaction.amount %>
+        Amount: <%= @transaction.currency %><%= @transaction.amount %>
       </div>
 
-      <div class="panel-block">
-        Currency: <%= @transaction.currency %>
-      </div>
+
 
       <div class="panel-block">
         Credit or debit: <%= @transaction.credit_or_debit %>
